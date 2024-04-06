@@ -1,0 +1,18 @@
+{
+	"debug.allowBreakpointsEverywhere": true,
+	"editor.detectIndentation": false,
+	"editor.formatOnSave": true,
+	"editor.tabSize": 4,
+	"files.autoSave": "off",
+  "files.exclude": {
+      "DoToo.sln": true,
+      "**/bin": true,
+      "**/obj": true
+  } ,
+	"[csharp]": {
+		"editor.defaultFormatter": "ms-dotnettools.csharp"
+	},
+	"[aspnetcorerazor]": {
+		"editor.defaultFormatter": "ms-dotnettools.csharp"
+	}
+}

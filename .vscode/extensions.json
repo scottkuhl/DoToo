@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "ms-dotnettools.csdevkit",
+    "just-seba.vscode-code-butler",
+    "streetsidesoftware.code-spell-checker",
+    "editorconfig.editorconfig",
+    "jbockle.jbockle-format-files"
+  ]
+}
