@@ -48,6 +48,8 @@ To keep things consistent:
 
 The application is based on [Blazor Web Assembly](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor).
 
+- IndexedDB is used as the local database with [Blazor Dexie](https://github.com/simon-kuster/BlazorDexie).
+
 ## Reference
 
 These references are presented in a logical order for review from start to finish for gathering a deeper understanding of the code base. There is an assumption that you are already familiar with C# and ASP.NET Core.
