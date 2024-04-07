@@ -1,7 +1,7 @@
 ﻿using BlazorDexie.Database;
 using BlazorDexie.JsModule;
 
-namespace DoToo;
+namespace DoToo.Repositories;
 
 public class AppDb(IModuleFactory moduleFactory) : Db("DoTooDatabase", 1, [], moduleFactory)
 {

@@ -1,3 +1,24 @@
 ﻿@page "/"
 
-<PageTitle>DoToo</PageTitle>
+@inject NavigationManager NavigationManager
+@inject ITodoItemRepository Repository
+
+<PageTitle>Do Too!</PageTitle>
+
+<MudAppBar Color="Color.Primary">
+    <MudText Typo="Typo.body1">Do Too!</MudText>
+    <MudSpacer />
+    <MudButton Variant="Variant.Filled" Color="Color.Primary">Toggle filter</MudButton>
+    <MudSpacer />
+    <MudTooltip Text="Add">
+        <MudIconButton Icon="@Icons.Material.Outlined.Add" Color="Color.Inherit" aria-label="add" OnClick="Add" />
+    </MudTooltip>
+</MudAppBar>
+
+@if (todoItems != null)
+{
+    @foreach (var item in todoItems)
+    {
+
+    }
+}

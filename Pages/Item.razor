@@ -1,0 +1,17 @@
+﻿@page "/item"
+
+<PageTitle>New todo item</PageTitle>
+
+<MudAppBar Color="Color.Primary">
+    <MudText Typo="Typo.body1">New todo item</MudText>
+    <MudSpacer />
+    <MudTooltip Text="Save">
+        <MudIconButton Icon="@Icons.Material.Outlined.Save" Color="Color.Inherit" aria-label="save" />
+    </MudTooltip>
+</MudAppBar>
+
+<MudForm>
+    <MudTextField T="string" Label="Title" Required="true" RequiredError="Title is required" />
+    <MudTextField T="DateTime?" Label="Due" />
+    <MudSwitch T="bool" Label="Completed" />
+</MudForm>

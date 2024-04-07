@@ -2,7 +2,7 @@
 using BlazorDexie.JsModule;
 using Microsoft.JSInterop;
 
-namespace DoToo;
+namespace DoToo.Repositories;
 
 public class TodoItemRepository : ITodoItemRepository, IAsyncDisposable
 {
