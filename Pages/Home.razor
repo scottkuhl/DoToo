@@ -19,6 +19,9 @@
 {
     @foreach (var item in todoItems)
     {
-
+        <MudPaper Elevation="0" Class="pb-4" @onclick="@(() => GoTo(item.Id))">
+    <MudText Typo="Typo.h6">@item.Title</MudText>
+    <MudText Typo="Typo.body1">@item.Due.ToString("MMMM dd, yyyy")</MudText>
+</MudPaper>
     }
 }

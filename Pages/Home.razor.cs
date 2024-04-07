@@ -8,16 +8,21 @@ public partial class Home
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        LoadDataAsync();
+        await LoadDataAsync();
     }
 
-    private void LoadDataAsync()
+    private async Task LoadDataAsync()
     {
-        todoItems = [];
+        todoItems = await Repository.GetItemsAsync();
     }
 
     private void Add()
     {
         NavigationManager.NavigateTo("/item");
+    }
+
+    private void GoTo(int id)
+    {
+        NavigationManager.NavigateTo($"/item/{id}");
     }
 }

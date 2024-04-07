@@ -8,9 +8,6 @@ public class TodoItemRepository : ITodoItemRepository, IAsyncDisposable
 {
     private readonly AppDb db;
 
-    public event EventHandler<TodoItem>? OnItemAdded;
-    public event EventHandler<TodoItem>? OnItemUpdated;
-
     public TodoItemRepository(IJSRuntime jsRuntime)
     {
         var moduleFactory = new EsModuleFactory(jsRuntime);
@@ -33,7 +30,6 @@ public class TodoItemRepository : ITodoItemRepository, IAsyncDisposable
     {
         await InitializeAsync();
         await db.TodoItems.Add(item);
-        OnItemAdded?.Invoke(this, item);
     }
 
     public async Task AddOrUpdateAsync(TodoItem item)
@@ -48,6 +44,11 @@ public class TodoItemRepository : ITodoItemRepository, IAsyncDisposable
         }
     }
 
+    public Task<TodoItem?> GetItemAsync(int id)
+    {
+        return db.TodoItems.Get(id);
+    }
+
     public async Task<List<TodoItem>> GetItemsAsync()
     {
         await InitializeAsync();
@@ -58,7 +59,6 @@ public class TodoItemRepository : ITodoItemRepository, IAsyncDisposable
     {
         await InitializeAsync();
         await db.TodoItems.Put(item);
-        OnItemUpdated?.Invoke(this, item);
     }
 
     public async ValueTask DisposeAsync()

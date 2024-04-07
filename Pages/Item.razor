@@ -1,4 +1,8 @@
 ﻿@page "/item"
+@page "/item/{id:int}"
+
+@inject NavigationManager NavigationManager
+@inject ITodoItemRepository Repository
 
 <PageTitle>New todo item</PageTitle>
 
@@ -6,12 +10,13 @@
     <MudText Typo="Typo.body1">New todo item</MudText>
     <MudSpacer />
     <MudTooltip Text="Save">
-        <MudIconButton Icon="@Icons.Material.Outlined.Save" Color="Color.Inherit" aria-label="save" />
+        <MudIconButton Icon="@Icons.Material.Outlined.Save" Color="Color.Inherit" aria-label="save"
+            OnClick="SaveAsync" />
     </MudTooltip>
 </MudAppBar>
 
 <MudForm>
-    <MudTextField T="string" Label="Title" Required="true" RequiredError="Title is required" />
-    <MudTextField T="DateTime?" Label="Due" />
-    <MudSwitch T="bool" Label="Completed" />
+    <MudTextField Label="Title" @bind-Value="todoItem.Title" />
+    <MudTextField Label="Due" @bind-Value="todoItem.Due" />
+    <MudSwitch Label="Completed" @bind-Value="todoItem.Completed" />
 </MudForm>

@@ -6,7 +6,7 @@ public class TodoItem
 {
     public bool Completed { get; set; }
 
-    public DateTime Due { get; set; }
+    public DateTime Due { get; set; } = DateTime.Today;
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public int Id { get; set; }
