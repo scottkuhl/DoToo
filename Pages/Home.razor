@@ -17,11 +17,24 @@
 
 @if (todoItems != null)
 {
+    <MudGrid Spacing="2">
     @foreach (var item in todoItems)
-    {
-        <MudPaper Elevation="0" Class="pb-4" @onclick="@(() => GoTo(item.Id))">
-    <MudText Typo="Typo.h6">@item.Title</MudText>
-    <MudText Typo="Typo.body1">@item.Due.ToString("MMMM dd, yyyy")</MudText>
-</MudPaper>
-    }
+        {
+            <MudItem xs="9" @onclick="@(() => GoTo(item.Id))">
+                <MudPaper Elevation="0">
+                    <MudText Typo="Typo.h6">@item.Title</MudText>
+                    <MudText Typo="Typo.body1">@item.Due.ToString("MMMM dd, yyyy")</MudText>
+                </MudPaper>
+            </MudItem>
+            <MudItem xs="3" Class="d-flex align-content-center flex-wrap flex-grow-1 gap-4" @onclick="@(() => GoTo(item.Id))">
+                <MudPaper Elevation="0">
+                    @if (item.Completed)
+                    {
+                        <MudText Typo="Typo.body1" Color="Color.Success">Completed</MudText>
+                    }
+                </MudPaper>
+            </MudItem>
+        }
+        </MudGrid>
+
 }
