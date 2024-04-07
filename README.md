@@ -1,6 +1,12 @@
 # DoToo
 
+_This project is part of an experiment to convert native applications to PWAs._
+
 A PWA version of the to do application from Chapter 2 of [.NET MAUI Projects - Third Edition](https://learning.oreilly.com/library/view/net-maui-projects/9781837634910/).
+
+The main difference in implementation is swapping out Sqlite for IndexedDB.
+In a real world application you still need to get the data out of IndexedDB.
+[The PWA Data Trap](https://medium.com/@scottkuhl/the-pwa-data-trap-5bd94d546348).
 
 ## Getting Started
 
@@ -78,7 +84,7 @@ These references are presented in a logical order for review from start to finis
 
 - **[Entity Framework](https://learn.microsoft.com/en-us/ef/)**: Entity Framework Core is a modern object-database mapper for .NET. It supports LINQ queries, change tracking, updates, and schema migrations. EF Core works with many databases, including SQL Database (on-premises and Azure), SQLite, MySQL, PostgreSQL, and Azure Cosmos DB.
 
-- **[Mozilla Developer Network Reference](https://developer.mozilla.org/en-US/docs/Web): The open Web presents incredible opportunities for developers. To take full advantage of these technologies, you need to know how to use them. Below you'll find links to our Web technology documentation.
+- **[Mozilla Developer Network Reference](https://developer.mozilla.org/en-US/docs/Web)**: The open Web presents incredible opportunities for developers. To take full advantage of these technologies, you need to know how to use them. Below you'll find links to our Web technology documentation.
 
 - **[web.dev](https://web.dev/)**: Let's build the future of the web, together. Take advantage of the latest modern technologies to build amazing web experiences for everyone.
 
