@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace DoToo.Pages;
 
@@ -25,6 +26,6 @@ public partial class Item
     private async Task SaveAsync()
     {
         await Repository.AddOrUpdateAsync(todoItem);
-        NavigationManager.NavigateTo("/");
+        await JSRuntime.InvokeVoidAsync("history.back");
     }
 }
