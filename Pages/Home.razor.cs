@@ -1,9 +1,11 @@
-﻿
-namespace DoToo.Pages;
+﻿namespace DoToo.Pages;
 
 public partial class Home
 {
     private List<TodoItem>? todoItems;
+    private List<TodoItem>? filteredItems;
+    private FilterType filter = FilterType.All;
+    private MudBlazor.Color filterColor = MudBlazor.Color.Success;
 
     protected override async Task OnInitializedAsync()
     {
@@ -14,6 +16,14 @@ public partial class Home
     private async Task LoadDataAsync()
     {
         todoItems = await Repository.GetItemsAsync();
+        if (filter == FilterType.All)
+        {
+            filteredItems = todoItems;
+        }
+        else
+        {
+            filteredItems = todoItems.Where(x => !x.Completed).ToList();
+        }
     }
 
     private void Add()
@@ -25,4 +35,25 @@ public partial class Home
     {
         NavigationManager.NavigateTo($"/item/{id}");
     }
+
+    private Task FilterAsync()
+    {
+        if (filter == FilterType.All)
+        {
+            filter = FilterType.Active;
+            filterColor = MudBlazor.Color.Default;
+        }
+        else
+        {
+            filter = FilterType.All;
+            filterColor = MudBlazor.Color.Success;
+        }
+        return LoadDataAsync();
+    }
+}
+
+public enum FilterType
+{
+    Active,
+    All
 }
